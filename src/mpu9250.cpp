@@ -408,7 +408,7 @@ bool Mpu9250::WriteRegister(uint8_t reg, uint8_t data) {
     digitalWrite(conn_, LOW);
     #endif
     #if defined(__IMXRT1062__)
-      delayNanoseconds(50);
+      delayNanoseconds(200);
     #endif
     spi_->transfer(reg);
     spi_->transfer(data);
@@ -421,7 +421,7 @@ bool Mpu9250::WriteRegister(uint8_t reg, uint8_t data) {
     digitalWrite(conn_, HIGH);
     #endif
     #if defined(__IMXRT1062__)
-      delayNanoseconds(50);
+      delayNanoseconds(200);
     #endif
     spi_->endTransaction();
   }
@@ -458,7 +458,7 @@ bool Mpu9250::ReadRegisters(uint8_t reg, uint8_t count, uint8_t *data) {
     digitalWrite(conn_, LOW);
     #endif
     #if defined(__IMXRT1062__)
-      delayNanoseconds(50);
+      delayNanoseconds(200);
     #endif
     spi_->transfer(reg | SPI_READ_);
     spi_->transfer(data, count);
@@ -471,7 +471,7 @@ bool Mpu9250::ReadRegisters(uint8_t reg, uint8_t count, uint8_t *data) {
     digitalWrite(conn_, LOW);
     #endif
     #if defined(__IMXRT1062__)
-      delayNanoseconds(50);
+      delayNanoseconds(200);
     #endif
     spi_->endTransaction();
     return true;
