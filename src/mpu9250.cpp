@@ -64,9 +64,9 @@ int Mpu9250::Begin() {
   //   return 2;
   // }
   /* Set the I2C bus speed to 400 kHz */
-  if (!WriteRegister(I2C_MST_CTRL_, I2C_MST_CLK_)) {
-    return 3;
-  }
+  // if (!WriteRegister(I2C_MST_CTRL_, I2C_MST_CLK_)) {
+  //   return 3;
+  // }
   /* Set AK8963 to power down */
   WriteAk8963Register(AK8963_CNTL1_, AK8963_PWR_DOWN_);
   /* Reset the MPU9250 */
@@ -87,14 +87,14 @@ int Mpu9250::Begin() {
   if ((who_am_i != WHOAMI_MPU9250_) && (who_am_i != WHOAMI_MPU9255_)) {
     return 6;
   }
-  /* Enable I2C master mode */
-  if (!WriteRegister(USER_CTRL_, I2C_MST_EN_)) {
-    return 7;
-  }
-  /* Set the I2C bus speed to 400 kHz */
-  if (!WriteRegister(I2C_MST_CTRL_, I2C_MST_CLK_)) {
-    return 8;
-  }
+  // /* Enable I2C master mode */
+  // if (!WriteRegister(USER_CTRL_, I2C_MST_EN_)) {
+  //   return 7;
+  // }
+  // /* Set the I2C bus speed to 400 kHz */
+  // if (!WriteRegister(I2C_MST_CTRL_, I2C_MST_CLK_)) {
+  //   return 8;
+  // }
   /* Check the AK8963 WHOAMI */
   if (!ReadAk8963Registers(AK8963_WHOAMI_, sizeof(who_am_i), &who_am_i)) {
     return 9;
