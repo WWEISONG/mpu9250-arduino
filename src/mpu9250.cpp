@@ -60,9 +60,9 @@ int Mpu9250::Begin() {
     return 1;
   }
   /* Enable I2C master mode */
-  if (!WriteRegister(USER_CTRL_, I2C_MST_EN_)) {
-    return 2;
-  }
+  // if (!WriteRegister(USER_CTRL_, I2C_MST_EN_)) {
+  //   return 2;
+  // }
   /* Set the I2C bus speed to 400 kHz */
   if (!WriteRegister(I2C_MST_CTRL_, I2C_MST_CLK_)) {
     return 3;
