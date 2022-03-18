@@ -84,9 +84,9 @@ int Mpu9250::Begin() {
   if (!ReadRegisters(WHOAMI_, sizeof(who_am_i), &who_am_i)) {
     return 5;
   }
-  if ((who_am_i != WHOAMI_MPU9250_) && (who_am_i != WHOAMI_MPU9255_)) {
-    return 6;
-  }
+  // if ((who_am_i != WHOAMI_MPU9250_) && (who_am_i != WHOAMI_MPU9255_)) {
+  //   return 6;
+  // }
   // /* Enable I2C master mode */
   // if (!WriteRegister(USER_CTRL_, I2C_MST_EN_)) {
   //   return 7;
